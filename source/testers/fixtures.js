@@ -27,7 +27,7 @@ function normalizer() {
 function cleanRenderedHtml(html) {
   var trimmedHtml = (html || '').trim();
 
-  return trimmedHtml && normalizer().domString(trimmedHtml);
+  return trimmedHtml && require('diffable-html')(normalizer().domString(trimmedHtml));
 }
 
 function renderHtml(renderer, fixture) {
